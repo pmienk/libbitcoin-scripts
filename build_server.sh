@@ -66,7 +66,9 @@ rm -rf libbitcoin-node libbitcoin-system secp256k1 boost libbitcoin-database  li
 # ignore shellcheck 2086 for last usage of ${OPTIMIZATIONS}
 #shellcheck disable="SC2086"
 
-CC=gcc CXX=g++ PKG_CONFIG_PATH="${install_dir}/lib/pkgconfig" CFLAGS=${OPTIMIZATION_FLAGS} CXXFLAGS=${OPTIMIZATION_FLAGS} ./install-gnu.sh --prefix="${install_dir}" --with-ultrafast --build-ultrafast --build-boost --build-link=static --build-config=release --build-skip-tests --build-parallel="${PARALLEL}" --noninteractive --build-post-install-clean ${OPTIMIZATIONS}
+#CC=gcc CXX=g++ PKG_CONFIG_PATH="${install_dir}/lib/pkgconfig" CFLAGS=${OPTIMIZATION_FLAGS} CXXFLAGS=${OPTIMIZATION_FLAGS} ./install-gnu.sh --prefix="${install_dir}" --with-ultrafast --build-ultrafast --build-boost --build-link=static --build-config=release --build-skip-tests --build-parallel="${PARALLEL}" --noninteractive --build-post-install-clean ${OPTIMIZATIONS}
+
+CC=gcc CXX=g++ PKG_CONFIG_PATH="${install_dir}/lib/pkgconfig" CFLAGS=${OPTIMIZATION_FLAGS} CXXFLAGS=${OPTIMIZATION_FLAGS} ./install-gnu.sh --prefix="${install_dir}" --build-link=static --build-config=release --build-skip-tests --build-parallel="${PARALLEL}" --noninteractive --build-post-install-clean ${OPTIMIZATIONS}
 
 popd # source
 

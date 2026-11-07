@@ -83,7 +83,7 @@ for project in ${projects}; do
         make clean
         set -e
 
-        CC=gcc CXX=g++ CFLAGS=${OPTIMIZATION_FLAGS} CXXFLAGS=${OPTIMIZATION_FLAGS} PKG_CONFIG_PATH="${install_dir}/lib/pkgconfig" BOOST_ROOT="${install_dir}" ./configure --with-tests --with-examples --with-pkgconfigdir="${install_dir}/lib/pkgconfig" --prefix="${install_dir}" --with-boost="${install_dir}" --with-icu --with-qrencode --with-png --with-ultrafast --enable-static --disable-shared ${OPTIMIZATIONS}
+        CC=gcc CXX=g++ CFLAGS="-O3 ${OPTIMIZATION_FLAGS}" CXXFLAGS="-O3 ${OPTIMIZATION_FLAGS}" PKG_CONFIG_PATH="${install_dir}/lib/pkgconfig" BOOST_ROOT="${install_dir}" ./configure --with-tests --with-examples --with-pkgconfigdir="${install_dir}/lib/pkgconfig" --prefix="${install_dir}" --enable-static --disable-shared ${OPTIMIZATIONS}
 
         make -j "${PARALLEL}"
         make install
