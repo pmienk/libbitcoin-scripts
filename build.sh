@@ -64,6 +64,12 @@ source=${branch}/source
 pushd "${source}"
 install_dir=$(dirname "$(pwd)")/install
 
+# Make a backup of the last install
+set +e
+rm -rf ${install_dir}.last
+mv ${install_dir} ${install_dir}.last
+set -e
+
 # ignore shellcheck 2086 for last usage of ${OPTIMIZATIONS}
 #shellcheck disable="SC2086"
 
